@@ -1,11 +1,22 @@
-# Satyavathi Gunturi — Portfolio
+# Satyavathi Gunturi — Portfolio · V1
 
-This repository contains multiple portfolio design versions.
+V1 is a minimal, dark, engineering-focused portfolio built as a responsive static site.
 
-## Branch strategy
+## Preview locally
+Open `index.html` in a browser.
+
+## V1 direction
+- Recruiter-friendly hero and career positioning
+- Selected work presented as engineering case-study cards
+- Experience timeline
+- Technical toolkit
+- AI/GenAI direction kept intentionally forward-looking rather than overstated
+- Responsive desktop/mobile layout
+
+## Repository strategy
 - `main` — stable/currently selected version
-- `v1` — first design direction
-- `v2` — second design direction
-- `v3` — third design direction
+- `v1` — minimal engineering portfolio
+- `v2` — reserved for a second design direction
+- `v3` — reserved for a third design direction
 
-Versions can coexist until one is selected and merged into `main`.
+The versions will coexist until a preferred design is selected.
