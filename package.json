@@ -1,0 +1,14 @@
+{
+  "name": "data-analytics-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Responsive static portfolio with reusable profile settings.",
+  "scripts": {
+    "format": "prettier --write index.html style.css data/*.js js/*.js *.md docs/*.md package.json .github/workflows/*.yml",
+    "format:check": "prettier --check index.html style.css data/*.js js/*.js *.md docs/*.md package.json .github/workflows/*.yml",
+    "check": "node --check js/portfolio.js && node --check data/profile.js && node --check data/projects.js && python scripts/validate_site.py"
+  },
+  "devDependencies": {
+    "prettier": "3.6.2"
+  }
+}
