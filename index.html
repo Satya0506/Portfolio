@@ -8,7 +8,7 @@
       name="description"
       content="Satyavathi Gunturi - turning data into insight across FinTech, Retail, Pharma and Supply Chain, with a growing focus on AI."
     />
-    <link rel="stylesheet" href="style.css?v=20261007" />
+    <link rel="stylesheet" href="style.css?v=20261007-technical" />
     <script src="data/profile.js" defer></script>
     <script src="js/portfolio.js" defer></script>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
@@ -599,73 +599,85 @@
                 </p>
               </div>
               <div class="architecture">
-                <div><b>CFPB Archives</b><small>public complaints + narratives</small></div>
+                <div><b>Source Ingestion</b><small>chunked CSV + provenance</small></div>
                 <i>→</i>
-                <div><b>DuckDB + dbt</b><small>bronze → silver → wide gold + star</small></div>
+                <div>
+                  <b>DuckDB/dbt Warehouse</b><small>normalized silver + wide/star gold</small>
+                </div>
                 <i>→</i>
-                <div><b>Serving Parquet</b><small>reconciled metrics + evidence sample</small></div>
+                <div>
+                  <b>Validated Serving Files</b><small>four grains + hash-bound evidence</small>
+                </div>
                 <i>→</i>
-                <div><b>Executive Dashboard</b><small>seven tabs + local narrative NLP</small></div>
+                <div>
+                  <b>Streamlit/DuckDB Queries</b><small>independent grains + weighted rates</small>
+                </div>
                 <i>→</i>
-                <div><b>Gemini Analyst</b><small>business context + SQL + citations</small></div>
+                <div>
+                  <b>Gemini Tool Orchestration</b><small>typed tools + parameterized SQL</small>
+                </div>
               </div>
               <div class="detail-grid">
                 <div>
                   <span>01</span>
-                  <h4>Build a Traceable Data Foundation</h4>
+                  <h4>Chunked Ingestion, Provenance &amp; Complaint Identity</h4>
                   <p>
-                    Ingested official CFPB archive exports in memory-bounded chunks with source
-                    provenance. Modeled eight normalized silver tables, complaint-level wide gold
-                    and a parallel star schema with one fact and seven dimensions.
+                    Processed archive CSVs in 50K-row chunks into compressed bronze Parquet.
+                    Preserved archive, CSV member and logical record provenance. The scheduled
+                    ingestion path resolves overlapping complaint IDs using deterministic
+                    source-release priority.
                   </p>
                 </div>
                 <div>
                   <span>02</span>
-                  <h4>Validate Before Serving</h4>
+                  <h4>dbt Medallion Models &amp; Parallel Gold Schemas</h4>
                   <p>
-                    Reconciled 14.48 million complaints across silver, wide gold and the star fact.
-                    Four independent dashboard aggregates preserve all 18 additive metric totals;
-                    synthetic CI builds exercise 21 dbt models and 126 data tests.
+                    Built typed staging views, eight normalized silver tables, complaint-level wide
+                    gold and a dimensional star with seven dimensions. JSON-encoded category keys
+                    preserve NULL and field boundaries; relationship and row-preservation tests
+                    check model integrity.
                   </p>
                 </div>
                 <div>
                   <span>03</span>
-                  <h4>Turn Metrics into Executive Views</h4>
+                  <h4>Additive Metrics &amp; Serving-Grain Isolation</h4>
                   <p>
-                    Deployed seven Streamlit tabs for overview, trends, companies, products and
-                    issues, responses, geography and channels, and narratives. Shared filters,
-                    weighted response rates, compact K/M/B labels and responsive charts support
-                    consistent exploration.
+                    Defined 18 additive metric flags and reconciled their totals across four
+                    independent Parquet aggregates. DuckDB queries each grain separately to prevent
+                    join multiplication; rates divide summed numerators by summed denominators.
+                    Synthetic CI exercises 21 dbt models and 126 data tests.
                   </p>
                 </div>
                 <div>
                   <span>04</span>
-                  <h4>Surface Customer Narrative Evidence</h4>
+                  <h4>Sample-Bound Narrative NLP &amp; Evidence Integrity</h4>
                   <p>
-                    Applied local TF–IDF and NMF to a validated sample of up to 60K public excerpts.
-                    Executive concern cards, word clusters and supporting complaint IDs make
-                    recurring reported experiences easier to investigate without extrapolating
-                    sample findings to the population.
+                    Bound a deterministic sample of up to 60K excerpts to the overview snapshot
+                    using SHA-256. Applied TF–IDF/NMF to filtered excerpts, reporting sample
+                    support, unassigned text and prior-period coverage rather than population-wide
+                    conclusions.
                   </p>
                 </div>
                 <div>
                   <span>05</span>
-                  <h4>Connect Business Questions to Data</h4>
+                  <h4>Gemini Tool Orchestration &amp; Constrained SQL</h4>
                   <p>
-                    Activated a floating Gemini analyst across the dashboard. It reads metric
-                    definitions, the business glossary and source context, runs
-                    application-generated read-only aggregate SQL, and retrieves sampled evidence.
-                    Answers expose source references, executed queries and exact results.
+                    Implemented function-calling tools for dataset inspection, business-document
+                    retrieval, aggregate queries and literal narrative search. Typed allowlists
+                    generate parameterized SELECT queries; execution limits, filter enforcement and
+                    source-ID validation constrain the answer path. Sources expose SQL, bound
+                    parameters and exact results.
                   </p>
                 </div>
                 <div>
                   <span>06</span>
-                  <h4>Engineer Validated Refresh Releases</h4>
+                  <h4>Source-Hashed Rebuilds &amp; Atomic Release Gates</h4>
                   <p>
-                    Implemented daily source checks, hashing, a rolling 36-month rebuild and
-                    validation before branch → PR → merge publication. Failed downloads or
-                    validation preserve the last published snapshot; the first full automated
-                    release remains blocked by observed CFPB HTTP 403 responses.
+                    Implemented archive discovery, SHA-256 source identity and a rolling 36-month
+                    rebuild. dbt validation, aggregate reconciliation and evidence checks gate
+                    publication of all five serving files through one branch → PR → merge release.
+                    Source-access failures retain the previous snapshot; the first full hosted
+                    release remains affected by CFPB HTTP 403 responses.
                   </p>
                 </div>
               </div>
