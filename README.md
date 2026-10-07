@@ -20,7 +20,7 @@ The portfolio is published on **GitHub Pages** and opens directly in an external
 
 - A clear professional introduction and portrait-led landing page.
 - Expandable case studies with business context, architecture and implementation details.
-- An independent-project section linked to Financial Complaint Intelligence.
+- An expandable Financial Complaint Intelligence case study in AI Lab, matching the selected-project cards, with a live executive dashboard and Gemini analyst.
 - Technical skills, education and direct email, LinkedIn and GitHub links.
 - Responsive layouts, keyboard focus indicators, a skip link and reduced-motion support.
 - Plain HTML, CSS and JavaScript: no framework, server or paid service required to run the site.
@@ -52,16 +52,16 @@ The [customization guide](docs/CUSTOMIZATION.md) explains exactly which content 
 
 ## Source structure
 
-| Path               | Responsibility                                                             |
-| ------------------ | -------------------------------------------------------------------------- |
-| `index.html`       | Page structure, career narrative and case studies                          |
-| `style.css`        | Design tokens, components and responsive layout                            |
-| `data/profile.js`  | Public identity, contact links, portrait and metadata                      |
-| `data/projects.js` | Reference metadata for the original selected projects; not a page renderer |
-| `js/portfolio.js`  | Safe profile binding and progressive enhancement                           |
-| `assets/`          | Portrait and favicon                                                       |
-| `docs/`            | Customization and deployment instructions                                  |
-| `scripts/`         | Static-site validation                                                     |
+| Path               | Responsibility                                                                |
+| ------------------ | ----------------------------------------------------------------------------- |
+| `index.html`       | Page structure, career narrative and case studies                             |
+| `style.css`        | Design tokens, components and responsive layout                               |
+| `data/profile.js`  | Public identity, contact links, portrait and metadata                         |
+| `data/projects.js` | Reference metadata for selected and independent projects; not a page renderer |
+| `js/portfolio.js`  | Safe profile binding and progressive enhancement                              |
+| `assets/`          | Portrait and favicon                                                          |
+| `docs/`            | Customization and deployment instructions                                     |
+| `scripts/`         | Static-site validation                                                        |
 
 ## Maintenance and code quality
 
