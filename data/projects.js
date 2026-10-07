@@ -28,7 +28,7 @@ window.PORTFOLIO_PROJECTS = [
     id: 5,
     domain: "FINANCIAL SERVICES",
     focus: "INDEPENDENT DATA + AI",
-    title: "Financial Complaint Intelligence: Executive Analytics & AI Analyst",
+    title: "Financial Complaint Intelligence: End-to-End AI-Powered Complaint Analysis",
     dashboard: "https://financial-complaint-intelligence.streamlit.app/",
     repository: "https://github.com/Satyavathi-Gunturi/Financial-Complaint-Intelligence",
   },
