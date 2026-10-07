@@ -936,3 +936,35 @@ summary:focus-visible {
     transition: none !important;
   }
 }
+
+/* Live project evidence follows the existing expanded case-study width. */
+.project-gallery {
+  margin: 30px 0;
+}
+.project-gallery figure {
+  margin: 0;
+  min-width: 0;
+}
+.project-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+.project-gallery figcaption {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+.ai-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+@media (max-width: 650px) {
+  .ai-preview-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -512,31 +512,192 @@
             emerging capabilities, and turn what I learn into something tangible.
           </div>
         </div>
-        <article class="future-card ai-project">
-          <div>
-            <span class="future-index">01 · FINANCIAL SERVICES</span>
-            <h3>Financial Complaint Intelligence</h3>
-            <p>
-              A tested data foundation covering 14.48 million public complaints. Bronze, silver and
-              two gold query structures prepare the data for an executive dashboard and an
-              evidence-backed AI agent.
-            </p>
-            <div class="tile-chips">
-              <span>DuckDB</span><span>dbt</span><span>Medallion</span><span>Star Schema</span>
+        <div class="project-grid">
+          <details class="project-tile semantic complaint-intelligence">
+            <summary>
+              <div class="tile-top">
+                <span class="project-no">01 · FINANCIAL SERVICES · INDEPENDENT DATA + AI</span>
+                <span class="tile-metric">14.48 M</span>
+              </div>
+              <h3>
+                Financial Complaint Intelligence<br /><em>Executive Analytics &amp; AI Analyst</em>
+              </h3>
+              <p>
+                A live leadership dashboard and evidence-backed Gemini analyst built on a validated
+                public complaint data platform.
+              </p>
+              <div class="tile-chips">
+                <span>DuckDB + dbt</span><span>Streamlit</span><span>Gemini</span>
+              </div>
+              <div class="expand-hint"><span>View project</span><b>+</b></div>
+            </summary>
+            <div class="project-expanded">
+              <div class="expanded-head">
+                <div>
+                  <span class="project-no">01 · FINANCIAL SERVICES · INDEPENDENT DATA + AI</span>
+                  <h3>
+                    Financial Complaint Intelligence<br /><em
+                      >Executive Analytics &amp; AI Analyst</em
+                    >
+                  </h3>
+                  <p>
+                    Built an end-to-end public-data platform covering 14.48 million CFPB complaints
+                    and 2.71 million published narratives, combining tested data engineering,
+                    executive analytics, local NLP and a live Gemini chatbot that answers business
+                    questions using constrained SQL and cited evidence.
+                  </p>
+                </div>
+                <div class="impact-badge">
+                  <strong>14.48 M</strong><span>Public complaints validated</span>
+                </div>
+              </div>
+              <div class="project-gallery">
+                <figure class="dashboard-preview">
+                  <a
+                    href="https://financial-complaint-intelligence.streamlit.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><img
+                      src="assets/projects/financial-complaint-dashboard.jpg"
+                      alt="Live executive dashboard with icon navigation, shared filters, complaint metrics and demand charts"
+                      loading="lazy"
+                      width="1363"
+                      height="936"
+                  /></a>
+                  <figcaption>Live executive dashboard · October 2026</figcaption>
+                </figure>
+                <div class="ai-preview-grid">
+                  <figure>
+                    <a
+                      href="assets/projects/ai-dashboard-context.jpg"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      ><img
+                        src="assets/projects/ai-dashboard-context.jpg"
+                        alt="Real Gemini AI Analyst response explaining dashboard purpose, source context and limitations"
+                        loading="lazy"
+                    /></a>
+                    <figcaption>AI Analyst · Business context and source references</figcaption>
+                  </figure>
+                  <figure>
+                    <a
+                      href="assets/projects/ai-monthly-volume.jpg"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      ><img
+                        src="assets/projects/ai-monthly-volume.jpg"
+                        alt="Real Gemini AI Analyst response analyzing monthly complaint volumes with cited sources"
+                        loading="lazy"
+                    /></a>
+                    <figcaption>AI Analyst · Monthly complaint-volume analysis</figcaption>
+                  </figure>
+                </div>
+                <p class="project-status">
+                  Real dashboard and owner-supplied AI responses captured on October 7, 2026. Open
+                  an AI image to read it full size; examples are separate from a systematic accuracy
+                  evaluation.
+                </p>
+              </div>
+              <div class="architecture">
+                <div><b>CFPB Archives</b><small>public complaints + narratives</small></div>
+                <i>→</i>
+                <div><b>DuckDB + dbt</b><small>bronze → silver → wide gold + star</small></div>
+                <i>→</i>
+                <div><b>Serving Parquet</b><small>reconciled metrics + evidence sample</small></div>
+                <i>→</i>
+                <div><b>Executive Dashboard</b><small>seven tabs + local narrative NLP</small></div>
+                <i>→</i>
+                <div><b>Gemini Analyst</b><small>business context + SQL + citations</small></div>
+              </div>
+              <div class="detail-grid">
+                <div>
+                  <span>01</span>
+                  <h4>Build a Traceable Data Foundation</h4>
+                  <p>
+                    Ingested official CFPB archive exports in memory-bounded chunks with source
+                    provenance. Modeled eight normalized silver tables, complaint-level wide gold
+                    and a parallel star schema with one fact and seven dimensions.
+                  </p>
+                </div>
+                <div>
+                  <span>02</span>
+                  <h4>Validate Before Serving</h4>
+                  <p>
+                    Reconciled 14.48 million complaints across silver, wide gold and the star fact.
+                    Four independent dashboard aggregates preserve all 18 additive metric totals;
+                    synthetic CI builds exercise 21 dbt models and 126 data tests.
+                  </p>
+                </div>
+                <div>
+                  <span>03</span>
+                  <h4>Turn Metrics into Executive Views</h4>
+                  <p>
+                    Deployed seven Streamlit tabs for overview, trends, companies, products and
+                    issues, responses, geography and channels, and narratives. Shared filters,
+                    weighted response rates, compact K/M/B labels and responsive charts support
+                    consistent exploration.
+                  </p>
+                </div>
+                <div>
+                  <span>04</span>
+                  <h4>Surface Customer Narrative Evidence</h4>
+                  <p>
+                    Applied local TF–IDF and NMF to a validated sample of up to 60K public excerpts.
+                    Executive concern cards, word clusters and supporting complaint IDs make
+                    recurring reported experiences easier to investigate without extrapolating
+                    sample findings to the population.
+                  </p>
+                </div>
+                <div>
+                  <span>05</span>
+                  <h4>Connect Business Questions to Data</h4>
+                  <p>
+                    Activated a floating Gemini analyst across the dashboard. It reads metric
+                    definitions, the business glossary and source context, runs
+                    application-generated read-only aggregate SQL, and retrieves sampled evidence.
+                    Answers expose source references, executed queries and exact results.
+                  </p>
+                </div>
+                <div>
+                  <span>06</span>
+                  <h4>Engineer Validated Refresh Releases</h4>
+                  <p>
+                    Implemented daily source checks, hashing, a rolling 36-month rebuild and
+                    validation before branch → PR → merge publication. Failed downloads or
+                    validation preserve the last published snapshot; the first full automated
+                    release remains blocked by observed CFPB HTTP 403 responses.
+                  </p>
+                </div>
+              </div>
+              <div class="tech-row">
+                <span>Python</span><span>SQL</span><span>DuckDB</span><span>dbt</span
+                ><span>Parquet</span><span>Streamlit</span><span>TF–IDF + NMF</span
+                ><span>Gemini Function Calling</span><span>GitHub Actions</span><span>Colab</span>
+              </div>
+              <p class="project-status">
+                Dashboard and AI Analyst are live. The historical snapshot covers November
+                2022–August 2026. Public charts are open; AI access requires a private workspace
+                code. Systematic live answer-quality evaluation remains pending.
+              </p>
+              <div class="actions">
+                <a
+                  class="button primary"
+                  href="https://financial-complaint-intelligence.streamlit.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Open live dashboard ↗</a
+                >
+                <a
+                  class="button secondary"
+                  href="https://github.com/Satyavathi-Gunturi/Financial-Complaint-Intelligence"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Explore the repository ↗</a
+                >
+              </div>
             </div>
-            <p class="project-status">
-              Data pipeline implemented. Dashboard and AI agent in development.
-            </p>
-            <a
-              class="button secondary"
-              href="https://github.com/Satyavathi-Gunturi/Financial-Complaint-Intelligence"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Explore the repository ↗</a
-            >
-          </div>
-          <span class="status-pill">IN DEVELOPMENT</span>
-        </article>
+          </details>
+        </div>
       </section>
       <section id="credentials" class="section shell credentials">
         <div class="sectionhead">

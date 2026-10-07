@@ -24,4 +24,12 @@ window.PORTFOLIO_PROJECTS = [
     focus: "DATA QUALITY",
     title: "Customer Identity & Data Quality at Scale",
   },
+  {
+    id: 5,
+    domain: "FINANCIAL SERVICES",
+    focus: "INDEPENDENT DATA + AI",
+    title: "Financial Complaint Intelligence: Executive Analytics & AI Analyst",
+    dashboard: "https://financial-complaint-intelligence.streamlit.app/",
+    repository: "https://github.com/Satyavathi-Gunturi/Financial-Complaint-Intelligence",
+  },
 ];
