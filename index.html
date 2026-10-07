@@ -599,85 +599,79 @@
                 </p>
               </div>
               <div class="architecture">
-                <div><b>Source Ingestion</b><small>chunked CSV + provenance</small></div>
+                <div><b>Data Ingestion</b><small>CSV chunks + source tracking</small></div>
+                <i>→</i>
+                <div><b>DuckDB + dbt</b><small>silver tables + wide/star gold</small></div>
                 <i>→</i>
                 <div>
-                  <b>DuckDB/dbt Warehouse</b><small>normalized silver + wide/star gold</small>
+                  <b>Validated Serving Files</b><small>four metric files + checked sample</small>
                 </div>
                 <i>→</i>
                 <div>
-                  <b>Validated Serving Files</b><small>four grains + hash-bound evidence</small>
+                  <b>Streamlit/DuckDB Queries</b><small>separate files + rates from totals</small>
                 </div>
                 <i>→</i>
-                <div>
-                  <b>Streamlit/DuckDB Queries</b><small>independent grains + weighted rates</small>
-                </div>
-                <i>→</i>
-                <div>
-                  <b>Gemini Tool Orchestration</b><small>typed tools + parameterized SQL</small>
-                </div>
+                <div><b>Gemini AI Layer</b><small>approved tools + read-only SQL</small></div>
               </div>
               <div class="detail-grid">
                 <div>
                   <span>01</span>
-                  <h4>Chunked Ingestion, Provenance &amp; Complaint Identity</h4>
+                  <h4>Data Ingestion &amp; Source Tracking</h4>
                   <p>
-                    Processed archive CSVs in 50K-row chunks into compressed bronze Parquet.
-                    Preserved archive, CSV member and logical record provenance. The scheduled
-                    ingestion path resolves overlapping complaint IDs using deterministic
-                    source-release priority.
+                    Read archive CSVs in 50K-row chunks and saved compressed Parquet files to keep
+                    memory use low. Each record keeps its archive name, CSV file and source row
+                    number. The scheduled pipeline handles repeated complaint IDs using a fixed
+                    source-release order.
                   </p>
                 </div>
                 <div>
                   <span>02</span>
-                  <h4>dbt Medallion Models &amp; Parallel Gold Schemas</h4>
+                  <h4>dbt Models — Silver, Wide Gold &amp; Star</h4>
                   <p>
-                    Built typed staging views, eight normalized silver tables, complaint-level wide
-                    gold and a dimensional star with seven dimensions. JSON-encoded category keys
-                    preserve NULL and field boundaries; relationship and row-preservation tests
-                    check model integrity.
+                    Used SQL and dbt to clean dates, labels and missing values, then built eight
+                    silver tables. Gold includes one wide table and a star schema with one complaint
+                    fact and seven dimensions. Tests check IDs, table relationships and row counts.
                   </p>
                 </div>
                 <div>
                   <span>03</span>
-                  <h4>Additive Metrics &amp; Serving-Grain Isolation</h4>
+                  <h4>Metric Checks &amp; Dashboard Queries</h4>
                   <p>
-                    Defined 18 additive metric flags and reconciled their totals across four
-                    independent Parquet aggregates. DuckDB queries each grain separately to prevent
-                    join multiplication; rates divide summed numerators by summed denominators.
-                    Synthetic CI exercises 21 dbt models and 126 data tests.
+                    Defined 18 count fields and checked their totals across four dashboard Parquet
+                    files. DuckDB reads each file separately to avoid counting complaints twice.
+                    Rates use summed counts, rather than averages of row-level rates. CI tests 21
+                    dbt models and 126 data rules.
                   </p>
                 </div>
                 <div>
                   <span>04</span>
-                  <h4>Sample-Bound Narrative NLP &amp; Evidence Integrity</h4>
+                  <h4>Narrative Analysis &amp; Evidence Checks</h4>
                   <p>
-                    Bound a deterministic sample of up to 60K excerpts to the overview snapshot
-                    using SHA-256. Applied TF–IDF/NMF to filtered excerpts, reporting sample
-                    support, unassigned text and prior-period coverage rather than population-wide
-                    conclusions.
+                    Created a sample of up to 60K complaint excerpts. A SHA-256 file hash checks
+                    that the sample belongs to the same dashboard snapshot. TF–IDF finds useful
+                    phrases and NMF groups related themes. Results show sample counts and complaint
+                    IDs; they are not treated as findings for every customer.
                   </p>
                 </div>
                 <div>
                   <span>05</span>
-                  <h4>AI Layer — Gemini Tool Orchestration &amp; Constrained SQL</h4>
+                  <h4>AI Layer — Business Context, SQL &amp; Evidence</h4>
                   <p>
-                    Implemented function-calling tools for dataset inspection, business-document
-                    retrieval, aggregate queries and literal narrative search. Typed allowlists
-                    generate parameterized SELECT queries; execution limits, filter enforcement and
-                    source-ID validation constrain the answer path. Sources expose SQL, bound
-                    parameters and exact results.
+                    Gemini uses tools to read metric definitions, inspect datasets, query counts and
+                    find complaint excerpts. The app builds read-only SQL from approved fields and
+                    passes filter values as parameters. Row, time and memory limits control queries.
+                    Answers show source IDs, executed SQL and exact results for review.
                   </p>
                 </div>
                 <div>
                   <span>06</span>
-                  <h4>Source-Hashed Rebuilds &amp; Atomic Release Gates</h4>
+                  <h4>Scheduled Refresh &amp; Release Checks</h4>
                   <p>
-                    Implemented archive discovery, SHA-256 source identity and a rolling 36-month
-                    rebuild. dbt validation, aggregate reconciliation and evidence checks gate
-                    publication of all five serving files through one branch → PR → merge release.
-                    Source-access failures retain the previous snapshot; the first full hosted
-                    release remains affected by CFPB HTTP 403 responses.
+                    GitHub Actions checks sources daily and uses SHA-256 hashes to detect changed
+                    files. A new build keeps the latest 36 months and runs dbt tests, metric checks
+                    and evidence checks. All five serving files are published together through a
+                    branch and PR. Failed runs keep the previous snapshot; CFPB HTTP 403 errors
+                    still prevent the first full hosted refresh.
                   </p>
                 </div>
               </div>
