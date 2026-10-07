@@ -8,7 +8,7 @@
       name="description"
       content="Satyavathi Gunturi - turning data into insight across FinTech, Retail, Pharma and Supply Chain, with a growing focus on AI."
     />
-    <link rel="stylesheet" href="style.css?v=20261007-technical" />
+    <link rel="stylesheet" href="style.css?v=20261007-end-to-end" />
     <script src="data/profile.js" defer></script>
     <script src="js/portfolio.js" defer></script>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
@@ -520,11 +520,14 @@
                 <span class="tile-metric">14.48&nbsp;M</span>
               </div>
               <h3>
-                Financial Complaint Intelligence<br /><em>Executive Analytics &amp; AI Analyst</em>
+                Financial Complaint Intelligence<br /><em
+                  >End-to-End AI-Powered Complaint Analysis</em
+                >
               </h3>
               <p>
-                A live leadership dashboard and evidence-backed Gemini analyst built on a validated
-                public complaint data platform.
+                Built an AI-powered platform to explore 14.48 M public complaints, uncover recurring
+                customer concerns, and answer questions about trends and company responses—with
+                answers backed by data and sources.
               </p>
               <div class="tile-chips">
                 <span>DuckDB + dbt</span><span>Streamlit</span><span>Gemini</span>
@@ -537,14 +540,13 @@
                   <span class="project-no">01 · FINANCIAL SERVICES · INDEPENDENT DATA + AI</span>
                   <h3>
                     Financial Complaint Intelligence<br /><em
-                      >Executive Analytics &amp; AI Analyst</em
+                      >End-to-End AI-Powered Complaint Analysis</em
                     >
                   </h3>
                   <p>
-                    Built an end-to-end public-data platform covering 14.48 million CFPB complaints
-                    and 2.71 million published narratives, combining tested data engineering,
-                    executive analytics, local NLP and a live Gemini chatbot that answers business
-                    questions using constrained SQL and cited evidence.
+                    Built an end-to-end platform that transformed 14.48 M public complaints into
+                    validated business metrics, executive dashboards, NLP insights and a Gemini AI
+                    analyst, with a scheduled refresh pipeline.
                   </p>
                 </div>
                 <div class="impact-badge">
@@ -599,79 +601,87 @@
                 </p>
               </div>
               <div class="architecture">
-                <div><b>Data Ingestion</b><small>CSV chunks + source tracking</small></div>
+                <div><b>CFPB Data Collection</b><small>14.48 M complaints + narratives</small></div>
                 <i>→</i>
-                <div><b>DuckDB + dbt</b><small>silver tables + wide/star gold</small></div>
+                <div><b>Medallion Architecture</b><small>bronze → silver → gold</small></div>
                 <i>→</i>
                 <div>
-                  <b>Validated Serving Files</b><small>four metric files + checked sample</small>
+                  <b>Metrics &amp; Dashboard</b><small>validated metrics + seven tabs</small>
                 </div>
                 <i>→</i>
                 <div>
-                  <b>Streamlit/DuckDB Queries</b><small>separate files + rates from totals</small>
+                  <b>NLP Complaint Analysis</b><small>customer concerns + recurring themes</small>
                 </div>
                 <i>→</i>
-                <div><b>Gemini AI Layer</b><small>approved tools + read-only SQL</small></div>
+                <div><b>Gemini AI Layer</b><small>Ask, Analyze and Explore with AI</small></div>
+              </div>
+              <div class="refresh-flow">
+                <b>Scheduled Pipeline Refresh</b
+                ><span
+                  >Check sources → Rebuild data layers → Validate metrics and evidence → Publish
+                  updated dashboard files</span
+                >
               </div>
               <div class="detail-grid">
                 <div>
                   <span>01</span>
-                  <h4>Data Ingestion &amp; Source Tracking</h4>
+                  <h4>Data Collection — 14.48 M CFPB Complaints</h4>
                   <p>
-                    Read archive CSVs in 50K-row chunks and saved compressed Parquet files to keep
-                    memory use low. Each record keeps its archive name, CSV file and source row
-                    number. The scheduled pipeline handles repeated complaint IDs using a fixed
-                    source-release order.
+                    Collected official CFPB complaint archives, including 2.71 M published
+                    narratives. Read CSVs in 50K-row chunks, saved compressed Parquet files and kept
+                    source archive, file and row details for tracking.
                   </p>
                 </div>
                 <div>
                   <span>02</span>
-                  <h4>dbt Models — Silver, Wide Gold &amp; Star</h4>
+                  <h4>Medallion Architecture — Bronze, Silver &amp; Gold</h4>
                   <p>
-                    Used SQL and dbt to clean dates, labels and missing values, then built eight
-                    silver tables. Gold includes one wide table and a star schema with one complaint
-                    fact and seven dimensions. Tests check IDs, table relationships and row counts.
+                    Built a bronze layer for source records, eight silver tables for cleaned data,
+                    and gold models for business analysis. Gold includes a wide complaint table and
+                    a star schema with one fact and seven dimensions. dbt tests check IDs,
+                    relationships and row counts.
                   </p>
                 </div>
                 <div>
                   <span>03</span>
-                  <h4>Metric Checks &amp; Dashboard Queries</h4>
+                  <h4>Business Metrics &amp; Seven-Tab Executive Dashboard</h4>
                   <p>
-                    Defined 18 count fields and checked their totals across four dashboard Parquet
-                    files. DuckDB reads each file separately to avoid counting complaints twice.
-                    Rates use summed counts, rather than averages of row-level rates. CI tests 21
-                    dbt models and 126 data rules.
+                    Defined 18 count fields and checked their totals across four serving files.
+                    Built seven Streamlit tabs covering overview, trends, companies, products and
+                    issues, responses, geography and channels, and narratives. DuckDB queries each
+                    file separately; rates use summed counts and shared filters.
                   </p>
                 </div>
                 <div>
                   <span>04</span>
-                  <h4>Narrative Analysis &amp; Evidence Checks</h4>
+                  <h4>NLP Analysis — Customer Concerns &amp; Recurring Themes</h4>
                   <p>
-                    Created a sample of up to 60K complaint excerpts. A SHA-256 file hash checks
-                    that the sample belongs to the same dashboard snapshot. TF–IDF finds useful
-                    phrases and NMF groups related themes. Results show sample counts and complaint
-                    IDs; they are not treated as findings for every customer.
+                    Analyzed a sample of up to 60K complaint excerpts using TF–IDF for useful
+                    phrases and NMF for related themes. Added concern cards, word clusters, sample
+                    counts and supporting complaint IDs. A file hash checks that the sample matches
+                    the dashboard snapshot.
                   </p>
                 </div>
                 <div>
                   <span>05</span>
-                  <h4>AI Layer — Business Context, SQL &amp; Evidence</h4>
+                  <h4>Gemini AI Layer — Ask, Analyze and Explore with AI</h4>
                   <p>
-                    Gemini uses tools to read metric definitions, inspect datasets, query counts and
-                    find complaint excerpts. The app builds read-only SQL from approved fields and
-                    passes filter values as parameters. Row, time and memory limits control queries.
-                    Answers show source IDs, executed SQL and exact results for review.
+                    Built a conversational AI analyst that uses business definitions, source
+                    information, dashboard metrics and complaint excerpts. Gemini selects approved
+                    tools to query data and find evidence. The app runs read-only SQL with current
+                    filters and query limits; answers show sources, SQL and exact results for
+                    review.
                   </p>
                 </div>
                 <div>
                   <span>06</span>
-                  <h4>Scheduled Refresh &amp; Release Checks</h4>
+                  <h4>Scheduled Refresh — Rebuild, Validate &amp; Publish</h4>
                   <p>
-                    GitHub Actions checks sources daily and uses SHA-256 hashes to detect changed
-                    files. A new build keeps the latest 36 months and runs dbt tests, metric checks
-                    and evidence checks. All five serving files are published together through a
-                    branch and PR. Failed runs keep the previous snapshot; CFPB HTTP 403 errors
-                    still prevent the first full hosted refresh.
+                    Implemented daily GitHub Actions source checks, file hashes and a rolling
+                    36-month rebuild across the data layers. dbt tests, metric totals and evidence
+                    checks run before all five serving files are published together through a branch
+                    and PR. Failed runs keep the previous snapshot. Scheduling remains enabled; CFPB
+                    HTTP 403 errors still block the first full hosted refresh.
                   </p>
                 </div>
               </div>

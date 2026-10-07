@@ -987,3 +987,23 @@ summary:focus-visible {
     gap: 14px;
   }
 }
+
+/* Refresh spans the complete project flow instead of appearing as a final data step. */
+.refresh-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 24px;
+  margin: 0 0 28px;
+  padding: 18px 22px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 12px;
+}
+.refresh-flow b {
+  color: var(--accent);
+}
+.refresh-flow span {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
